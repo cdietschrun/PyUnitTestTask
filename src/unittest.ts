@@ -45,24 +45,24 @@ function getPipTool(args: string[]): tr.ToolRunner {
  * Configures the environment for use
  */
 async function configureEnvironment() {
-     if (process.env['VIRTUAL_ENV'] === undefined) {
-        tl.debug('Not currently in a virtual environment');
+    // if (process.env['VIRTUAL_ENV'] === undefined) {
+    //    tl.debug('Not currently in a virtual environment');
 
         // Define the location of the virtual environment
-        let venv = path.join(agentBuildDir, 'venv', 'build');
-        tl.debug('Virtual environment path set to: ' + venv);
+    //    let venv = path.join(agentBuildDir, 'venv', 'build');
+     //   tl.debug('Virtual environment path set to: ' + venv);
 
         // Create the virtual environment
-        tl.debug('Creating virtual environment');
-        let pythonPath = isWindows() ? tl.which('python') : tl.which('python3');
-        let venvTool = tl.tool(pythonPath).arg(['-m', 'venv', venv]);
-        await venvTool.exec();
+        //tl.debug('Creating virtual environment');
+        //let pythonPath = isWindows() ? tl.which('python') : tl.which('python3');
+        //let venvTool = tl.tool(pythonPath).arg(['-m', 'venv', venv]);
+        //await venvTool.exec();
 
         // Activate the virtual environment
-        activateVenv(venv);
-    } else {
-        tl.debug('Already in a virtual environment');
-    }
+        //activateVenv(venv);
+    //} else {
+    //    tl.debug('Already in a virtual environment');
+   // }
 
     // Get the optional requirements file and restore if available
     if (fs.lstatSync(requirementFile).isFile()) {
